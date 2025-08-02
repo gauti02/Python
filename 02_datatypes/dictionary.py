@@ -8,9 +8,12 @@ print(customer)
 print(customer["name"])
 print(customer["city"])
 #Check whether the key "email" exists in the dictionary
+#in checks only for keys
 print("email" in customer)
 #Delete the "age" field
-customer.pop("age")
+# customer.pop("age")
+# customer.pop("age", None)  # Using None to avoid KeyError if "age" doesn't exist
+del customer["age"]  # Using del to remove the key
 print(customer)
 #Print all dictionary keys, values, and items
 print(customer.keys())
@@ -21,4 +24,9 @@ print(customer.popitem())
 #Use .get() to access the key "membership" (which doesn’t exist, like removed phone in last command).
 print(customer.get("phone")) #result None
 customer["address"] = "221B Baker Street"
+print(customer)
+
+#update the dictionary with another dictionary
+additional_info = {"membership": "gold", "loyalty_points": 150}
+customer.update(additional_info)
 print(customer)
